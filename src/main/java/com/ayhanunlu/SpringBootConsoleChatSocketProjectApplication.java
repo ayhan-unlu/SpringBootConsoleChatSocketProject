@@ -10,6 +10,4 @@ public class SpringBootConsoleChatSocketProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args);
     }
-
-
 }

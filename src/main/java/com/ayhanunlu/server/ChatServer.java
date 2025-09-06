@@ -1,5 +1,6 @@
 package com.ayhanunlu.server;
 
+import com.ayhanunlu.utils.ChatLogger;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -49,6 +50,8 @@ public class ChatServer {
                 bufferedWriter.write(messageFromServer);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+
+                ChatLogger.logMessage("Server",messageFromServer);
             }
 
         } catch (IOException e) {

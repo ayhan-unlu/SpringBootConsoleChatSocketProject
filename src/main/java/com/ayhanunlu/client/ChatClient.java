@@ -1,5 +1,6 @@
 package com.ayhanunlu.client;
 
+import com.ayhanunlu.utils.ChatLogger;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -44,6 +45,8 @@ public class ChatClient {
                 bufferedWriter.write(messageFromClient);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+
+                ChatLogger.logMessage("Client", messageFromClient);
 
                 if (messageFromClient.equalsIgnoreCase("bye")) {
                     break;

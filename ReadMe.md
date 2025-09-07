@@ -1,5 +1,7 @@
 # Spring Boot Console Chat Application
+This Project is the closing project of Kodluyoruz / Patika.dev Java Backend Advanced Web Development Course.
 
+Free to use, modify, and distribute. Citation is appreciated but not required.
 ## Description
 A simple console-based chat application using Java sockets and Spring Boot. Messages are logged with timestamps to a text file.
 

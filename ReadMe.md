@@ -26,18 +26,15 @@ A simple console-based chat application using Java sockets and Spring Boot. Mess
 ## Screenshots
 
 >Just After Running 3 files
+> 
 >>![img.png](readmescreenshots/chatlog/img.png)
 >>
 >>![img_11.png](readmescreenshots/chatlog/img_11.png)
 >>
 >>![img_10.png](readmescreenshots/chatlog/img_10.png)
->>
->>![img_9.png](readmescreenshots/chatlog/img_9.png)
-
 
 >Just After Chat
->>
->>
+> 
 >>![img_8.png](readmescreenshots/chatlog/img_8.png)
 >>
 >>![img_7.png](readmescreenshots/chatlog/img_7.png)
@@ -45,10 +42,7 @@ A simple console-based chat application using Java sockets and Spring Boot. Mess
 >>![img_6.png](readmescreenshots/chatlog/img_6.png)
 
 >With a new Chat
->>
->>
->>
->>
+
 >>![img_5.png](readmescreenshots/chatlog/img_5.png)
 >>
 >>![img_4.png](readmescreenshots/chatlog/img_4.png)

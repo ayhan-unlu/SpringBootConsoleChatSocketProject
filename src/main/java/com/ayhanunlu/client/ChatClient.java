@@ -27,6 +27,7 @@ public class ChatClient {
             System.out.println("Connected to the server on port: " + port);
 
             System.out.println("Please enter your message:");
+            ChatLogger.logChatHeader();
             handleServer(socket);
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,6 +46,7 @@ public class ChatClient {
                 bufferedWriter.write(messageFromClient);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+
 
                 ChatLogger.logMessage("Client", messageFromClient);
 

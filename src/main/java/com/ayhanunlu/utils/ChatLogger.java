@@ -13,13 +13,28 @@ public class ChatLogger {
         try (
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("chat-log.txt", true));
         ) {
-            LocalDateTime now = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String timestamp = now.format(formatter);
-            bufferedWriter.write(now+sender + ":" + message);
+
+            bufferedWriter.newLine();
+            bufferedWriter.write("[ " + createTimestamp() + " ] " + sender + " : " + message);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void logChatHeader() {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("chat-log.txt", true))) {
+            bufferedWriter.newLine();
+            bufferedWriter.write("\t\t\t\tNew Chat Session " + createTimestamp());
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String createTimestamp(){
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 }

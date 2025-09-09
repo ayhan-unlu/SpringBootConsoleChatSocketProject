@@ -1,21 +1,30 @@
 package com.ayhanunlu.client;
 
+import com.ayhanunlu.SpringBootConsoleChatSocketProjectApplication;
+import com.ayhanunlu.business.dto.ChatMessageDto;
+import com.ayhanunlu.business.service.IChatMessageService;
 import com.ayhanunlu.utils.ChatLogger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 @Service
 public class ChatClient {
     private final int port = 1206;
 
+    @Autowired
+    IChatMessageService service;
+
     public static void main(String[] args) {
         try {
             Thread.sleep(2000);
-            ChatClient chatClient = new ChatClient();
-            chatClient.connectServer();
+            SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatClient.class).connectServer();
+
         } catch (RuntimeException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,7 +36,7 @@ public class ChatClient {
             System.out.println("Connected to the server on port: " + port);
 
             System.out.println("Please enter your message:");
-            ChatLogger.logChatHeader();
+            logChatHeader(LocalDateTime.now());
             handleServer(socket);
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,9 +55,14 @@ public class ChatClient {
                 bufferedWriter.write(messageFromClient);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+                LocalDateTime now = LocalDateTime.now();
 
-
-                ChatLogger.logMessage("Client", messageFromClient);
+                try {
+                    logMessage(now, messageFromClient);
+                    saveMessage(now, messageFromClient);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 if (messageFromClient.equalsIgnoreCase("bye")) {
                     break;
@@ -68,5 +82,22 @@ public class ChatClient {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void logChatHeader(LocalDateTime now) {
+        ChatLogger.logChatHeader(now);
+    }
+
+    private void logMessage(LocalDateTime now, String messageFromClient) {
+        ChatLogger.logMessage(now, "Client", messageFromClient);
+    }
+
+    private void saveMessage(LocalDateTime now, String messageFromClient) {
+        service.saveMessage(
+                ChatMessageDto
+                        .builder()
+                        .sender("Client").message(messageFromClient).timestamp(now)
+                        .build()
+        );
     }
 }

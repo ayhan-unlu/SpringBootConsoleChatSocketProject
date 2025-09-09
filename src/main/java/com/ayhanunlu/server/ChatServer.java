@@ -1,11 +1,18 @@
 package com.ayhanunlu.server;
 
+import com.ayhanunlu.SpringBootConsoleChatSocketProjectApplication;
+import com.ayhanunlu.business.dto.ChatMessageDto;
+import com.ayhanunlu.business.service.IChatMessageService;
+import com.ayhanunlu.business.service.impl.ChatMessageServiceImpl;
 import com.ayhanunlu.utils.ChatLogger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 @Service
@@ -13,9 +20,11 @@ public class ChatServer {
 
     private final int port = 1206;
 
+    @Autowired
+    IChatMessageService service;
+
     public static void main(String[] args) {
-        ChatServer chatServer = new ChatServer();
-        chatServer.startServer();
+        SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatServer.class).startServer();
     }
 
     public void startServer() {
@@ -38,11 +47,11 @@ public class ChatServer {
              BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
              Scanner scanner = new Scanner(System.in)) {
 
-            while(true){
+            while (true) {
                 String messageFromClient = bufferedReader.readLine();
-                System.out.println("Client: "+messageFromClient);
+                System.out.println("Client: " + messageFromClient);
 
-                if(messageFromClient.equalsIgnoreCase("bye")){
+                if (messageFromClient.equalsIgnoreCase("bye")) {
                     break;
                 }
 
@@ -51,7 +60,13 @@ public class ChatServer {
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
 
-                ChatLogger.logMessage("Server",messageFromServer);
+                LocalDateTime now = LocalDateTime.now();
+                try {
+                    logMessage(now, messageFromServer);
+                    saveMessage(now, messageFromServer);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
         } catch (IOException e) {
@@ -64,5 +79,17 @@ public class ChatServer {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void logMessage(LocalDateTime now, String message) {
+        ChatLogger.logMessage(now, "Server", message);
+    }
+
+    private void saveMessage(LocalDateTime now, String messageFromServer) {
+        service.saveMessage(
+                ChatMessageDto
+                        .builder()
+                        .sender("Server").message(messageFromServer).timestamp(now)
+                        .build());
     }
 }

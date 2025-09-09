@@ -9,3 +9,10 @@
 [ 2025-09-07 10:27:19 ] Client : Hello server with a new chat
 
 [ 2025-09-07 10:27:19 ] Server : Hello Server with a new chat
+
+				New Chat Session 2025-09-07 12:37:03
+[ 2025-09-07 12:37:32 ] Client : hello server
+
+[ 2025-09-07 12:37:38 ] Server : hello client
+
+[ 2025-09-07 12:37:42 ] Client : bye

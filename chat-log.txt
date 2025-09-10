@@ -45,3 +45,40 @@
 [ 2025-09-10 17:38:39 ] Server : hi
 
 [ 2025-09-10 17:38:45 ] Client : bye
+
+				New Chat Session 2025-09-10 22:11:38
+[ 2025-09-10 22:12:11 ] Client : hello
+
+				New Chat Session 2025-09-10 22:12:21
+				New Chat Session 2025-09-10 22:14:29
+[ 2025-09-10 22:14:49 ] Client : hi
+
+[ 2025-09-10 22:14:57 ] Server : how r  u ?
+
+[ 2025-09-10 22:15:06 ] Client : pretty good you ?
+
+[ 2025-09-10 22:15:21 ] Server : good thank you too
+
+[ 2025-09-10 22:25:25 ] Client : bye
+
+				New Chat Session 2025-09-10 22:31:05
+[ 2025-09-10 22:31:11 ] Client : hello
+
+				New Chat Session 2025-09-10 22:31:39
+				New Chat Session 2025-09-10 22:34:24
+[ 2025-09-10 22:34:35 ] Client : hi again
+
+[ 2025-09-10 22:34:41 ] Server : Hello client 
+
+[ 2025-09-10 22:34:57 ] Client : End of the project 
+
+[ 2025-09-10 22:35:19 ] Server : good. messages are saved on database with MySQL
+
+[ 2025-09-10 22:35:24 ] Client : bye
+
+				New Chat Session 2025-09-10 22:38:46
+[ 2025-09-10 22:38:51 ] Client : Hi
+
+[ 2025-09-10 22:38:55 ] Server : Hello
+
+[ 2025-09-10 22:39:00 ] Client : Bye

@@ -16,3 +16,32 @@
 [ 2025-09-07 12:37:38 ] Server : hello client
 
 [ 2025-09-07 12:37:42 ] Client : bye
+
+				New Chat Session 2025-09-10 16:58:55
+[ 2025-09-10 16:59:14 ] Client : Hello server
+
+[ 2025-09-10 16:59:21 ] Server : hi client 
+
+[ 2025-09-10 16:59:48 ] Client : so the separated 3 consoles problem is solved ?
+
+[ 2025-09-10 16:59:56 ] Server : it seems so 
+
+[ 2025-09-10 17:00:35 ] Client : so let s move to the saving chat to the database pace
+
+[ 2025-09-10 17:00:40 ] Server : ok deal
+
+[ 2025-09-10 17:00:44 ] Client : bye
+
+				New Chat Session 2025-09-10 17:23:15
+[ 2025-09-10 17:23:27 ] Client : hi
+
+[ 2025-09-10 17:23:31 ] Server : hi
+
+[ 2025-09-10 17:23:36 ] Client : bye
+
+				New Chat Session 2025-09-10 17:38:08
+[ 2025-09-10 17:38:35 ] Client : hi
+
+[ 2025-09-10 17:38:39 ] Server : hi
+
+[ 2025-09-10 17:38:45 ] Client : bye

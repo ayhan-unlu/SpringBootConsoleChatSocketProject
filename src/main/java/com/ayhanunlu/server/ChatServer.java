@@ -7,6 +7,8 @@ import com.ayhanunlu.business.service.impl.ChatMessageServiceImpl;
 import com.ayhanunlu.utils.ChatLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -24,8 +26,12 @@ public class ChatServer {
     IChatMessageService service;
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatServer.class).startServer();
+        SpringApplication app = new SpringApplication(SpringBootConsoleChatSocketProjectApplication.class);
+        app.setWebApplicationType(WebApplicationType.NONE);
+        ConfigurableApplicationContext context = app.run(args);
+        context.getBean(ChatServer.class).startServer();
     }
+
 
     public void startServer() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {

@@ -6,6 +6,8 @@ import com.ayhanunlu.business.service.IChatMessageService;
 import com.ayhanunlu.utils.ChatLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -23,7 +25,11 @@ public class ChatClient {
     public static void main(String[] args) {
         try {
             Thread.sleep(2000);
-            SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatClient.class).connectServer();
+//            SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatClient.class).connectServer();
+            SpringApplication app = new SpringApplication(SpringBootConsoleChatSocketProjectApplication.class);
+            app.setWebApplicationType(WebApplicationType.NONE);
+            ConfigurableApplicationContext context = app.run(args);
+            context.getBean(ChatClient.class).connectServer();
 
         } catch (RuntimeException | InterruptedException e) {
             e.printStackTrace();
@@ -65,6 +71,7 @@ public class ChatClient {
                 }
 
                 if (messageFromClient.equalsIgnoreCase("bye")) {
+                    System.out.println("The connection has been closed.");
                     break;
                 }
 

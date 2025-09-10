@@ -53,3 +53,8 @@ Citation is appreciated but not required.
 >>![img_5.png](readmescreenshots/chatlog/img_5.png)
 >>
 >>![img_4.png](readmescreenshots/chatlog/img_4.png)
+Clean> 
+
+>Saved to Database
+
+>>![img.png](readmescreenshots/chat_historydatabase/img.png)

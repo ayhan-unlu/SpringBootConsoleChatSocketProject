@@ -3,7 +3,6 @@ package com.ayhanunlu.server;
 import com.ayhanunlu.SpringBootConsoleChatSocketProjectApplication;
 import com.ayhanunlu.business.dto.ChatMessageDto;
 import com.ayhanunlu.business.service.IChatMessageService;
-import com.ayhanunlu.business.service.impl.ChatMessageServiceImpl;
 import com.ayhanunlu.utils.ChatLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

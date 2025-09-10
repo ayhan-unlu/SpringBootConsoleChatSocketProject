@@ -25,7 +25,6 @@ public class ChatClient {
     public static void main(String[] args) {
         try {
             Thread.sleep(2000);
-//            SpringApplication.run(SpringBootConsoleChatSocketProjectApplication.class, args).getBean(ChatClient.class).connectServer();
             SpringApplication app = new SpringApplication(SpringBootConsoleChatSocketProjectApplication.class);
             app.setWebApplicationType(WebApplicationType.NONE);
             ConfigurableApplicationContext context = app.run(args);
@@ -71,6 +70,7 @@ public class ChatClient {
                 }
 
                 if (messageFromClient.equalsIgnoreCase("bye")) {
+                    saveMessage(LocalDateTime.now(),"##### END OF CHAT SESSION #####");
                     System.out.println("The connection has been closed.");
                     break;
                 }

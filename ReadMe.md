@@ -11,6 +11,12 @@ A simple console-based chat application using Java sockets and Spring Boot. Mess
 - New chat session header
 - Spring Boot integration
 
+
+## UML Diagram
+
+>>![UMLDiagram.png](readmescreenshots/UML/UMLDiagram.png)
+
+
 ## License
 
 This project is free to use, modify, and distribute.  
